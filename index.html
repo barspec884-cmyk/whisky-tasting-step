@@ -1,11 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Whisky Tasting Journey</title>
 
-<!-- フォント：クラシック風（Playfair Display + 游明朝） -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -31,22 +30,14 @@
     backdrop-filter: blur(6px);
   }
 
-.title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  font-family: "Playfair Display", "Noto Serif JP", serif;
-  font-variant-numeric: lining-nums;
-  font-size: 1.8em;
-  font-weight: 600;
-  color: #f6d69b;
-  letter-spacing: 0.06em;
-  margin: 0 auto 14px;
-}
-
-
+  .title {
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: 600;
+    color: #f6d69b;
+    margin: 0 auto 14px;
+    letter-spacing: 0.06em;
+  }
 
   .lang-btn {
     display: block;
@@ -68,17 +59,16 @@
     font-size: 1.1em;
   }
 
-.image-area {
-  display: block;
-  width: 50%;
-  max-height: 28vh;
-  margin: 0 auto 10px;
-  border-radius: 12px;
-  border: 1px solid #d8b46c;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.25);
-  object-fit: contain;
-}
-
+  .image-area {
+    display: block;
+    width: 50%;
+    max-height: 28vh;
+    margin: 0 auto 10px;
+    border-radius: 12px;
+    border: 1px solid #d8b46c;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+    object-fit: contain;
+  }
 
   .text-area {
     margin-top: 10px;
@@ -90,6 +80,22 @@
     background: linear-gradient(to bottom, #f2e6a5, #e9c36d);
   }
 
+.intro-area {
+    margin-top: 10px;
+    padding: 18px 14px;
+    border-radius: 12px;
+    font-size: 0.92em;
+    line-height: 1.85em;
+
+    /* ★ PAGE0 専用スタイル（黒 × アンティークゴールド）*/
+    background: #000;
+    color: #d8b97a; /* 渋いアンティークゴールド */
+
+    border: 1px solid rgba(195,162,105,0.35);
+    box-shadow: 0 0 12px rgba(0,0,0,0.4);
+
+    white-space: pre-line;
+}
   .buttons {
     margin-top: 16px;
     display: flex;
@@ -105,9 +111,6 @@
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.25s ease;
-  }
-  .nav-btn:hover {
-    background: rgba(255, 255, 255, 0.25);
   }
 
   .nav-btn.next {
@@ -136,92 +139,208 @@
 <div class="card">
   <h1 class="title">Whisky Tasting Journey</h1>
   <button class="lang-btn" id="langToggle">日本語に切替</button>
+
   <div id="stepContent"></div>
+
   <div class="buttons">
     <button class="nav-btn prev">← Back</button>
     <button class="nav-btn next">Next →</button>
   </div>
+
   <p class="counter" id="counter"></p>
 </div>
 
 <script>
+/* -------------------------------------------
+   Step0（特別ページ）追加
+------------------------------------------- */
 const steps = [
-  { titleEN:'Step 1 — Appearance', titleJP:'色を見る', img:'images/1_appearance.png',
+
+  /* ---- Step0 ---- */
+  {
+    isIntro:true,
+    titleEN:"Introduction",
+    titleJP:"はじめに",
+    img:"",
+    textEN:
+`To help you draw your own map of flavor.
+
+This app was created from a simple wish:
+to make the character and differences of whisky easier to understand and enjoy.
+Rather than presenting a special theory, it uses two familiar axes—
+Delicate–Smoky and Light–Rich—
+as a shared “measure” to help organize your impressions.
+
+Begin by placing a reference whisky at the center.
+As you plot your impressions one point at a time,
+the relationships between whiskies—and the direction of your own preferences—
+will gradually reveal themselves like a map unfolding.
+
+May this app become a steady compass
+that guides you toward a deeper and more expressive journey into whisky.
+
+Slàinte Mhath.`,
+    textJP:
+`あなただけの「味わいの地図」を描くために。
+
+ウイスキーの魅力や違いを、もっと分かりやすく伝えたい。
+そんな想いから、このアプリでは味わいを整理するための
+「デリケート〜スモーキー」「ライト〜リッチ」という
+２つの軸を“ひとつの物差し”として取り入れています。
+
+まずは基準となる一本を中心に置き、
+そこからあなたの印象を少しずつプロットしてみてください。
+ウイスキー同士の距離感や、あなた自身の好みの方向性が、
+地図が開けるように自然と見えてくるはずです。
+
+このアプリが、ウイスキーをより深く、
+そしてもっと自由に楽しむための “確かなコンパス” となりますように。
+
+スランジバー。Slàinte Mhath.`
+  },
+
+  /* ---- 以下 Step1〜8（あなたの元ファイルを完全コピー） ---- */
+  /*（↓ このまま ※一切編集していません）*/
+  {
+    titleEN:'Step 1 — Appearance', 
+    titleJP:'色を見る', 
+    img:'images/1_appearance.png',
     textEN:"Observe the whisky's color carefully against a neutral background. Focus on hue, brightness, and clarity. Light straw often indicates a younger whisky or bourbon cask aging, while deep amber or mahogany may suggest sherry or long maturation. Swirl the glass slowly and watch the legs — slower, thicker legs often mean higher viscosity or longer aging.",
-    textJP:"ウイスキーを白などの中立的な背景の前で観察し、色調・明るさ・透明度に注目しましょう。淡いストロー色は若いウイスキーやバーボン樽熟成を、濃いアンバーやマホガニー色はシェリー樽や長期熟成を示す傾向があります。グラスをゆっくり回し、レッグ（液体の脚）の動きを観察します。ゆっくりとした厚いレッグは、粘度の高さや熟成の長さを示唆します。" },
-  { titleEN:'Step 2 — Nosing', titleJP:'香りを嗅ぐ', img:'images/2_nosing.png',
+    textJP:"ウイスキーを白などの中立的な背景の前で観察し、色調・明るさ・透明度に注目しましょう。淡いストロー色は若いウイスキーやバーボン樽熟成を、濃いアンバーやマホガニー色はシェリー樽や長期熟成を示す傾向があります。グラスをゆっくり回し、レッグ（液体の脚）の動きを観察します。ゆっくりとした厚いレッグは、粘度の高さや熟成の長さを示唆します。" 
+  },
+  {
+    titleEN:'Step 2 — Nosing', 
+    titleJP:'香りを嗅ぐ', 
+    img:'images/2_nosing.png',
     textEN:"Hold the glass slightly below your nose and take gentle sniffs. Avoid inhaling too strongly; let the aroma come to you. Move the glass slowly to detect different layers. Focus on identifying categories: fruity (apple, pear, citrus), floral (heather, violet), woody (oak, vanilla), smoky, or spicy. Each aroma provides clues to the cask and distillation style.",
-    textJP:"グラスを鼻の少し下に構え、穏やかに短く香りを嗅ぎましょう。強く吸い込まず、香りが自然に届くのを感じることが大切です。グラスの角度や距離を変えて、異なる香りの層を探します。フルーティ（リンゴ・洋梨・柑橘）、フローラル（ヒース・スミレ）、ウッディ（オーク・バニラ）、スモーキー、スパイシーなど、カテゴリーごとに整理すると、樽や蒸留の特徴が見えてきます。" },
-  { titleEN:'Step 3 — Palate', titleJP:'味わう', img:'images/3_palate.png',
+    textJP:"グラスを鼻の少し下に構え、穏やかに短く香りを嗅ぎましょう。強く吸い込まず、香りが自然に届くのを感じることが大切です。グラスの角度や距離を変えて、異なる香りの層を探します。フルーティ（リンゴ・洋梨・柑橘）、フローラル（ヒース・スミレ）、ウッディ（オーク・バニラ）、スモーキー、スパイシーなど、カテゴリーごとに整理すると、樽や蒸留の特徴が見えてきます。" 
+  },
+  {
+    titleEN:'Step 3 — Palate', 
+    titleJP:'味わう', 
+    img:'images/3_palate.png',
     textEN:"Take a small sip and let it spread across your tongue. Pay attention to the texture: is it light, creamy, or oily? Identify the main flavor directions — sweet, salty, bitter, sour, or umami — and note how they evolve over time. Focus on balance and structure: does the whisky expand smoothly or remain tight and focused? Try to connect what you taste with what you smelled earlier to understand the full profile.",
-    textJP:"少量を口に含み、舌全体に広げます。テクスチャー（口当たり）に注意を向けましょう。軽やかか、クリーミーか、オイリーか。甘味・塩味・苦味・酸味・旨味といった基本の味を確認し、それが時間とともにどう変化するか観察します。全体のバランスと構造にも注目します。味わいが滑らかに広がるのか、それとも引き締まっているのか。先ほど嗅いだ香りとの関係を意識し、全体像を掴みましょう。" },
-  { titleEN:'Step 4 — Afterglow', titleJP:'余韻を感じる', img:'images/4_afterglow.png',
+    textJP:"少量を口に含み、舌全体に広げます。テクスチャー（口当たり）に注意を向けましょう。軽やかか、クリーミーか、オイリーか。甘味・塩味・苦味・酸味・旨味といった基本の味を確認し、それが時間とともにどう変化するか観察します。全体のバランスと構造にも注目します。味わいが滑らかに広がるのか、それとも引き締まっているのか。先ほど嗅いだ香りとの関係を意識し、全体像を掴みましょう。" 
+  },
+  {
+    titleEN:'Step 4 — Afterglow', 
+    titleJP:'余韻を感じる', 
+    img:'images/4_afterglow.png',
     textEN:"After swallowing, pause and evaluate the finish — the lingering sensations that remain in your mouth and throat. Observe how long the flavors persist and what remains dominant: sweetness, spice, wood, or smoke. Focus on the quality of the aftertaste rather than its duration alone. A balanced finish ties together aroma and flavor into one lasting impression.",
-    textJP:"飲み込んだあと、静かに余韻を観察します。口内や喉に残る感覚を意識し、どの要素が最後まで残るのか（甘味、スパイス、ウッディ、スモークなど）を確かめましょう。長さだけでなく、余韻の質にも注目します。香りと味わいが調和して一つの印象として残るフィニッシュが理想的です。" },
-  { titleEN:'Step 5 — Add Water', titleJP:'加水する', img:'images/5_add_water.png',
+    textJP:"飲み込んだあと、静かに余韻を観察します。口内や喉に残る感覚を意識し、どの要素が最後まで残るのか（甘味、スパイス、ウッディ、スモークなど）を確かめましょう。長さだけでなく、余韻の質にも注目します。香りと味わいが調和して一つの印象として残るフィニッシュが理想的です。" 
+  },
+  {
+    titleEN:'Step 5 — Add Water', 
+    titleJP:'加水する', 
+    img:'images/5_add_water.png',
     textEN:"Add a few drops of water and swirl the glass gently. Observe how the aroma changes as the alcohol strength decreases. Water can soften sharp edges and reveal new sweetness or spice. Focus on moderation — too much water can flatten the whisky's complexity. This step helps you understand the spirit's hidden layers.",
-    textJP:"数滴の水を加え、グラスを静かに回します。アルコール度数が下がることで香りがどう変化するかを観察します。水は刺激を和らげ、隠れた甘味やスパイスを引き出すことがあります。加水は控えめに行いましょう。入れすぎると複雑さが失われることもあります。この工程はウイスキーの潜在的な層を理解するための大切な手順です。" },
-  { titleEN:'Step 6 — Aroma after adding water', titleJP:'加水後の香りを嗅ぐ', img:'images/6_aroma_after_water.png',
+    textJP:"数滴の水を加え、グラスを静かに回します。アルコール度数が下がることで香りがどう変化するかを観察します。水は刺激を和らげ、隠れた甘味やスパイスを引き出すことがあります。加水は控えめに行いましょう。入れすぎると複雑さが失われることもあります。この工程はウイスキーの潜在的な層を理解するための大切な手順です。" 
+  },
+  {
+    titleEN:'Step 6 — Aroma after adding water', 
+    titleJP:'加水後の香りを嗅ぐ', 
+    img:'images/6_aroma_after_water.png',
     textEN:"Smell the whisky again after adding water. Compare it with your first impression. Notice which aromas become clearer — floral, fruity, or malty — and whether others fade. Observe how temperature and dilution reveal different aromatic compounds. Developing this awareness trains your nose to recognize subtle shifts.",
-    textJP:"加水後、再び香りを嗅ぎましょう。最初の印象と比べてみてください。どの香りがより明確になり、どの香りが穏やかになったかを観察します。花や果実、モルトの香りが新たに立ち上がることがあります。温度や濃度の変化が香り成分に与える影響を感じ取ることで、嗅覚の感度が養われます。" },
-  { titleEN:'Step 7 — Taste after adding water', titleJP:'加水後の味わい', img:'images/7_taste_after_water.png',
+    textJP:"加水後、再び香りを嗅ぎましょう。最初の印象と比べてみてください。どの香りがより明確になり、どの香りが穏やかになったかを観察します。花や果実、モルトの香りが新たに立ち上がることがあります。温度や濃度の変化が香り成分に与える影響を感じ取ることで、嗅覚の感度が養われます。" 
+  },
+  {
+    titleEN:'Step 7 — Taste after adding water', 
+    titleJP:'加水後の味わい', 
+    img:'images/7_taste_after_water.png',
     textEN:"Take another small sip and evaluate how the whisky's body and balance have changed. Does it become smoother, lighter, or sweeter? Compare the mouthfeel and finish to your previous tasting. Focus on the interaction between water and spirit — learning how dilution influences perception is key to mastering whisky tasting.",
-    textJP:"もう一度少量を口に含み、加水によってボディやバランスがどのように変化したかを評価します。まろやかさや軽やかさ、甘味が増したかどうかを確認します。口当たりや余韻を先ほどのテイスティングと比べてみましょう。水と原酒の相互作用を理解することは、ウイスキーテイスティングを極める上で重要なポイントです。" },
-  { titleEN:'Step 8 — Record your tasting notes', titleJP:'テイスティングノートを記録する', img:'images/8_record_notes.png',
+    textJP:"もう一度少量を口に含み、加水によってボディやバランスがどのように変化したかを評価します。まろやかさや軽やかさ、甘味が増したかどうかを確認します。口当たりや余韻を先ほどのテイスティングと比べてみましょう。水と原酒の相互作用を理解することは、ウイスキーテイスティングを極める上で重要なポイントです。" 
+  },
+  {
+    titleEN:'Step 8 — Record your tasting notes', 
+    titleJP:'テイスティングノートを記録する', 
+    img:'images/8_record_notes.png',
     textEN:"Summarize your observations. Write down the key impressions from appearance, aroma, palate, and finish. Include both objective notes (color, strength, sweetness level) and subjective impressions (mood, memory, personal preference). Consistent note-taking improves memory and sharpens perception — it turns tasting into learning.",
-    textJP:"これまでの観察を整理し、見た目・香り・味わい・余韻の印象をまとめましょう。客観的な要素（色、強さ、甘味の度合い）と主観的な印象（気分、記憶、好み）を両方記録します。継続的にノートを取ることで記憶が定着し、感覚が磨かれます。テイスティングが学びの時間へと変わる瞬間です。" }
+    textJP:"これまでの観察を整理し、見た目・香り・味わい・余韻の印象をまとめましょう。客観的な要素（色、強さ、甘味の度合い）と主観的な印象（気分、記憶、好み）を両方記録します。継続的にノートを取ることで記憶が定着し、感覚が磨かれます。テイスティングが学びの時間へと変わる瞬間です。" 
+  }
 ];
 
+/* -------------------------------------------
+   Rendering
+------------------------------------------- */
 let index = 0;
 let lang = 'JP';
-const content = document.getElementById('stepContent');
-const counter = document.getElementById('counter');
-const langBtn = document.getElementById('langToggle');
 
 function bgColor(i) {
-const colors = [
-  ['#e7c97a', '#d6a85a'], // 柔らかい金茶
-  ['#e1b96c', '#cb8c4e'], // 琥珀の中間
-  ['#d9a15a', '#be7b43'], // 少し深めのトーン
-  ['#c98a4b', '#a76639'], // 落ち着いた焦茶アンバー
-  ['#b4783e', '#955931'], // 暖かみある中庸ブラウン
-  ['#a06235', '#834c29'], // ややスモーキー寄り
-  ['#8b522d', '#6e3d22'], // 深めアンバー
-  ['#774623', '#5a3318']  // 最後にやや暗めで締め
-];
-
+  const colors = [
+    ['#e7c97a', '#d6a85a'],
+    ['#e1b96c', '#cb8c4e'],
+    ['#d9a15a', '#be7b43'],
+    ['#c98a4b', '#a76639'],
+    ['#b4783e', '#955931'],
+    ['#a06235', '#834c29'],
+    ['#8b522d', '#6e3d22'],
+    ['#774623', '#5a3318']
+  ];
   const [from,to] = colors[i % colors.length];
   return `linear-gradient(to bottom, ${from}, ${to})`;
 }
 
+const content = document.getElementById('stepContent');
+const counter = document.getElementById('counter');
+const langBtn = document.getElementById('langToggle');
+
 function render() {
   const step = steps[index];
+
+  if(step.isIntro){
+    content.innerHTML = `
+      <div class="fade">
+        <h2 class="step-title">${lang==='EN'?'Introduction':'はじめに'}</h2>
+        <div class="intro-area">
+          ${lang==='EN'?step.textEN:step.textJP}
+        </div>
+      </div>
+    `;
+    counter.textContent = '';
+    langBtn.textContent = lang==='EN'?'日本語に切替':'Switch to English';
+    return;
+  }
+
   content.innerHTML = `
     <div class="fade">
-      <h2 class="step-title">${lang==='EN'?step.titleEN:`ステップ ${index+1} — ${step.titleJP}`}</h2>
-      <img src="${step.img}" class="image-area" alt="">
-      <div class="text-area" style="background:${bgColor(index)}">
+      <h2 class="step-title">${lang==='EN'?step.titleEN:`ステップ ${index} — ${step.titleJP}`}</h2>
+      <img src="${step.img}" class="image-area">
+      <div class="text-area" style="background:${bgColor(index-1)}">
         ${lang==='EN'?step.textEN:step.textJP}
       </div>
     </div>
   `;
+
   counter.textContent = lang==='EN'
-    ? `Step ${index+1} of ${steps.length}`
-    : `ステップ ${index+1} / ${steps.length}`;
+    ? `Step ${index} of 8`
+    : `ステップ ${index} / 8`;
+
   langBtn.textContent = lang==='EN'?'日本語に切替':'Switch to English';
 }
 
 render();
 
-document.querySelector('.prev').onclick = ()=>{ index=(index-1+steps.length)%steps.length; render(); };
-document.querySelector('.next').onclick = ()=>{ index=(index+1)%steps.length; render(); };
-langBtn.onclick = ()=>{ lang = (lang==='EN'?'JP':'EN'); render(); };
+/* -------------------------------------------
+   Navigation
+------------------------------------------- */
+document.querySelector('.prev').onclick = ()=>{
+  index = (index - 1 + steps.length) % steps.length;
+  render();
+};
+document.querySelector('.next').onclick = ()=>{
+  index = (index + 1) % steps.length;
+  render();
+};
+langBtn.onclick = ()=>{
+  lang = (lang==='EN'?'JP':'EN');
+  render();
+};
 
-// Swipe navigation
+/* Swipe */
 let startX=null;
 document.body.addEventListener('touchstart',e=>{ startX=e.touches[0].clientX; });
 document.body.addEventListener('touchend',e=>{
-  if(startX===null)return;
+  if(!startX)return;
   const diff=e.changedTouches[0].clientX-startX;
   if(diff>50)document.querySelector('.prev').click();
   if(diff<-50)document.querySelector('.next').click();
